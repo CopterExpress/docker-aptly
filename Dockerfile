@@ -50,7 +50,7 @@ xz-utils
 COPY assets/aptly.conf /etc/aptly.conf
 
 # Enable Aptly Bash completions
-RUN wget https://github.com/smira/aptly/raw/master/bash_completion.d/aptly \
+RUN wget https://github.com/aptly-dev/aptly/raw/master/completion.d/aptly \
   -O /etc/bash_completion.d/aptly \
   && echo "if ! shopt -oq posix; then\n\
   if [ -f /usr/share/bash-completion/bash_completion ]; then\n\
