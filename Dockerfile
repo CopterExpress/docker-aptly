@@ -30,18 +30,21 @@ RUN echo "deb http://nginx.org/packages/$DIST/ $RELEASE nginx" > /etc/apt/source
 RUN echo "deb-src http://nginx.org/packages/$DIST/ $RELEASE nginx" >> /etc/apt/sources.list.d/nginx.list
 RUN apt-key adv --keyserver hkp://pgp.mit.edu:80 --recv-keys 573BFD6B3D8FBC641079A6ABABF5BD827BD9BF62
 
-# Update APT repository and install packages
-RUN apt-get -q update                  \
- && apt-get -y install aptly           \
-                       bash-completion \
-                       bzip2           \
-                       gnupg           \
-                       gpgv            \
-                       graphviz        \
-                       supervisor      \
-                       nginx           \
-                       wget            \
-                       xz-utils
+# Update APT repository
+RUN apt-get -q update
+
+# Install packages
+RUN apt-get -y install \
+aptly=1.3.0 \
+bash-completion \
+bzip2 \
+gnupg \
+gpgv \
+graphviz \
+supervisor \
+nginx \
+wget \
+xz-utils
 
 # Install Aptly Configuration
 COPY assets/aptly.conf /etc/aptly.conf
