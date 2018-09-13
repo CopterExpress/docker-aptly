@@ -28,7 +28,7 @@ docker run \
   --env EMAIL_ADDRESS="youremail@example.com" \
   --env GPG_PASSWORD="PickAPassword" \
   --env HOSTNAME=aptly.example.com \
-  urpylka/aptly:latest
+  smirart/aptly:latest
 ```
 
 > Wait until the GPG keyrings are created (not 0 bytes) before proceeding (it can take a few minutes). They will be in the bind mount location.
